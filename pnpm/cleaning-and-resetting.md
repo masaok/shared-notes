@@ -1,9 +1,16 @@
 - [PNPM Cleaning and Resetting](#pnpm-cleaning-and-resetting)
+  - [One-liner](#one-liner)
 - [**Steps for Clean Reset Using `pnpm`**](#steps-for-clean-reset-using-pnpm)
 - [Why `--force`?](#why---force)
 - [Key Use Cases for `--force`](#key-use-cases-for---force)
 
 ### PNPM Cleaning and Resetting
+
+#### One-liner
+
+```bash
+find . -name node_modules -type d | grep -v pnpm | xargs rm -rf && rm pnpm-lock.yaml && pnpm store prune && pnpm install --force
+```
 
 To do a **clean reset** on a repo using `pnpm`, you generally want to remove installed dependencies, clear any generated files, and then reinstall them from scratch. Here's how to achieve that clean reset:
 
@@ -11,7 +18,7 @@ To do a **clean reset** on a repo using `pnpm`, you generally want to remove ins
 
 ### **Steps for Clean Reset Using `pnpm`**
 
-1. **Delete `node_modules` and `pnpm-lock.yaml`**  
+1. **Delete `node_modules` and `pnpm-lock.yaml`**
    This removes installed dependencies and any lock files that `pnpm` uses.
 
 ```bash

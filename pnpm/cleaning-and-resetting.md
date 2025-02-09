@@ -9,7 +9,7 @@
 #### One-liner
 
 ```bash
-find . -name node_modules -type d | grep -v pnpm | xargs rm -rf && rm pnpm-lock.yaml && pnpm store prune && pnpm install --force
+find . -name node_modules -type d | grep -v pnpm | xargs rm -rf && rm -f pnpm-lock.yaml && pnpm store prune && pnpm install --force
 ```
 
 To do a **clean reset** on a repo using `pnpm`, you generally want to remove installed dependencies, clear any generated files, and then reinstall them from scratch. Here's how to achieve that clean reset:
